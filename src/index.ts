@@ -37,6 +37,7 @@ const createNewBlock = (data: string): Block => {
     const newTimestamp: number = getNewTimeStamp();
     const newHash: string = Block.calculateBlockHash(newIndex, previousBlock.hash, newTimestamp, data);
     const newBlock: Block = new Block(newIndex, newHash, previousBlock.hash, data, newTimestamp);
+    addBlock(newBlock);
     return newBlock;
 }
 
@@ -58,6 +59,12 @@ const isBlockVaild = (candidateBlock: Block, previousBlock: Block): boolean => {
 
 const addBlock = (candidateBlock: Block): void => {
     if (isBlockVaild(candidateBlock, getLatestBlock())) {
-        blockChain.push(candidateBlock)
+        blockChain.push(candidateBlock);
     }
 }
+
+createNewBlock('second Block');
+createNewBlock('third Block');
+createNewBlock('fourth Block');
+
+console.log(blockChain);
