@@ -8,7 +8,7 @@ _Learning Typescript by making a Blockchain with it!_
 
 - 자바스크립트에 없는 규칙을 갖고 있다. 이 규칙은 오류를 줄여준다.
 
-## 타입 스크립트 시작 전
+## 타입스크립트 시작 전
 
 - `git init`
 - `git remote add origin (주소)`
