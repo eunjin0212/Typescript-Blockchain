@@ -1,0 +1,8 @@
+{
+  "name": "TypeScript-BlockChain",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/eunjin0212/Typescript-Blockchain.git",
+  "author": "eunjin0212 <eunjin9639@gmail.com>",
+  "license": "MIT"
+}
