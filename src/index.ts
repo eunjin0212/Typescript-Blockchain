@@ -40,12 +40,24 @@ const createNewBlock = (data: string): Block => {
     return newBlock;
 }
 
-const isNewBlockVaild = (candidateBlock: Block, previousBlock: Block): boolean => {
+const getHashForBlock = (aBlock: Block): string => Block.calculateBlockHash(aBlock.index, aBlock.previousHash, aBlock.timeStamp, aBlock.data)
+
+const isBlockVaild = (candidateBlock: Block, previousBlock: Block): boolean => {
     if (!Block.validateStructure(candidateBlock)) {
         return false;
     } else if (previousBlock.index + 1 !== candidateBlock.index) {
         return false;
     } else if (previousBlock.hash !== candidateBlock.previousHash) {
         return false;
+    } else if (getHashForBlock(candidateBlock) !== candidateBlock.hash) {
+        return false;
+    } else {
+        return true;
+    }
+};
+
+const addBlock = (candidateBlock: Block): void => {
+    if (isBlockVaild(candidateBlock, getLatestBlock())) {
+        blockChain.push(candidateBlock)
     }
 }
